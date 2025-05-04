@@ -23,6 +23,7 @@ public class RomanNumeralTests
     [InlineData(2, "II")]
     [InlineData(3, "III")]
     [InlineData(5, "V")]
+    [InlineData(6, "VI")]
     public void FromArabic_ReturnsExpectedRomanNumeral(int arabic, string expectedNumeral)
     {
         //Arrange
@@ -45,7 +46,7 @@ public class RomanNumeral(string numeral, int value)
     {
         if(arabic > 3999)
             throw new ArgumentException("Numbers greater than 3999 are not supported.");
-
+        
         if (arabic == 5)
             return new RomanNumeral("V", 5);
         
