@@ -8,7 +8,7 @@
 [x] Convert basic number '2'  
 [x] Convert basic number '3'  
 [x] Convert basic number '5'
-[] Convert basic number '6'
+[x] Convert basic number '6'
 [] Convert basic number '10'  
 [] Convert basic number '20'  
 [] Convert basic number '50'  
