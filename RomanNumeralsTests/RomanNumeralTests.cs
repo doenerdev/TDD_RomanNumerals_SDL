@@ -44,6 +44,12 @@ public class RomanNumeral(string numeral, int value)
     public string Numeral { get; set; } = numeral;
     public int Value { get; set; } = value;
 
+    private static readonly List<(int Arabic, string Numeral)> Numerals =
+    [
+        (5, "V"),
+        (10, "X")
+    ];
+
     public static RomanNumeral FromArabic(int arabic)
     {
         if(arabic > 3999)
@@ -52,28 +58,17 @@ public class RomanNumeral(string numeral, int value)
         var numeral = "";
         var arabicToProcess = arabic;
 
-        while (arabicToProcess > 0)
+        foreach (var numeralLookup in Numerals.OrderByDescending(x => x.Numeral))
         {
-            if (arabicToProcess >= 10)
+            while (arabicToProcess >= numeralLookup.Arabic)
             {
-                numeral += "X";
-                arabicToProcess -= 10;
-                continue;
-            }
-        
-            if (arabicToProcess >= 5)
-            {
-                numeral += "V";
-                arabicToProcess -= 5;
-                continue;
-            }
-
-            for (var i = 0; i < arabicToProcess; i++)
-            {
-                numeral += "I";
-                arabicToProcess--;
+                numeral += numeralLookup.Numeral;
+                arabicToProcess -= numeralLookup.Arabic;
             }
         }
+        
+        for (var i = 0; i < arabicToProcess; i++)
+            numeral += "I";
         
         return new RomanNumeral(numeral, arabic);
     }
