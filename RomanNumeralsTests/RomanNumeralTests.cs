@@ -40,6 +40,9 @@ public class RomanNumeral(string numeral, int value)
 
     public static RomanNumeral FromArabic(int arabic)
     {
+        if(arabic == 1)
+            return new RomanNumeral("I", arabic);
+        
         throw new ArgumentException("Numbers greater than 3999 are not supported.");
     }
 }

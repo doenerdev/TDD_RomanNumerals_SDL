@@ -1,8 +1,10 @@
 # To-Dos
 
-[x] Reject numbers bigger than 3999
+[x] Reject numbers bigger than 3999  
+[] Ensure lower limit of 0 (no negative numbers in requirement)  
+[] Make sure that lower limit of 3999 still works
 
-[] Convert basic number '1'  
+[x] Convert basic number '1'  
 [] Convert basic number '2'  
 [] Convert basic number '3'  
 [] Convert basic number '5'  
