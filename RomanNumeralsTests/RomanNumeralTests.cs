@@ -51,21 +51,29 @@ public class RomanNumeral(string numeral, int value)
 
         var numeral = "";
         var arabicToProcess = arabic;
-        
-        if (arabic == 20)
-            return new RomanNumeral("XX", arabicToProcess);
-        
-        if (arabic == 10)
-            return new RomanNumeral("X", arabicToProcess);
-        
-        if (arabic >= 5)
+
+        while (arabicToProcess > 0)
         {
-            numeral += "V";
-            arabicToProcess -= 5;
-        }
+            if (arabicToProcess >= 10)
+            {
+                numeral += "X";
+                arabicToProcess -= 10;
+                continue;
+            }
         
-        for (var i = 0; i < arabicToProcess; i++)
-            numeral += "I";
+            if (arabicToProcess >= 5)
+            {
+                numeral += "V";
+                arabicToProcess -= 5;
+                continue;
+            }
+
+            for (var i = 0; i < arabicToProcess; i++)
+            {
+                numeral += "I";
+                arabicToProcess--;
+            }
+        }
         
         return new RomanNumeral(numeral, arabic);
     }
