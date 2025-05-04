@@ -1,6 +1,6 @@
 # To-Dos
 
-[] Reject numbers bigger than 3999
+[x] Reject numbers bigger than 3999
 
 [] Convert basic number '1'  
 [] Convert basic number '2'  

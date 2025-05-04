@@ -11,14 +11,22 @@ public class RomanNumeralTests
         //Arrange
         const int arabic = 4000;
         
-        //Reason about the public API
-        // ... string numeral = 4000.ToArabic();
-        // ... string numeral = RomanConverter.ToArabic(4000);
         var action = () => RomanNumeral.FromArabic(arabic);
         
         //Act & Assert
         action.Should().Throw<ArgumentException>()
             .WithMessage("Numbers greater than 3999 are not supported.");
+    }
+}
+
+public class RomanNumeral(string numeral, int value)
+{
+    public string Numeral { get; set; } = numeral;
+    public int Value { get; set; } = value;
+
+    public static RomanNumeral FromArabic(int arabic)
+    {
+        throw new ArgumentException("Numbers greater than 3999 are not supported.");
     }
 }
 
