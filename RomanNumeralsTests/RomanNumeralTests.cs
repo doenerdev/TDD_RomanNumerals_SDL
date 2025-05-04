@@ -24,6 +24,7 @@ public class RomanNumeralTests
     [InlineData(3, "III")]
     [InlineData(5, "V")]
     [InlineData(6, "VI")]
+    [InlineData(10, "X")]
     public void FromArabic_ReturnsExpectedRomanNumeral(int arabic, string expectedNumeral)
     {
         //Arrange
@@ -49,6 +50,9 @@ public class RomanNumeral(string numeral, int value)
 
         var numeral = "";
         var arabicToProcess = arabic;
+        
+        if (arabic == 10)
+            return new RomanNumeral("X", arabicToProcess);
         
         if (arabic >= 5)
         {
