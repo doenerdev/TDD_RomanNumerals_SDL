@@ -31,6 +31,34 @@ public class RomanNumeralTests
         //Assert
         actual.Should().BeEquivalentTo(expected);
     }
+    
+    [Fact]
+    public void ConvertFromArabic_GivenNumber2_Literal_II_IsReturned()
+    {
+        //Arrange
+        const int arabic = 2;
+        var expected = new RomanNumeral("II", arabic);
+        
+        //Act
+        var actual = RomanNumeral.FromArabic(arabic);
+        
+        //Assert
+        actual.Should().BeEquivalentTo(expected);
+    }
+    
+    [Fact]
+    public void ConvertFromArabic_GivenNumber3_Literal_III_IsReturned()
+    {
+        //Arrange
+        const int arabic = 3;
+        var expected = new RomanNumeral("III", arabic);
+        
+        //Act
+        var actual = RomanNumeral.FromArabic(arabic);
+        
+        //Assert
+        actual.Should().BeEquivalentTo(expected);
+    }
 }
 
 public class RomanNumeral(string numeral, int value)
@@ -42,6 +70,12 @@ public class RomanNumeral(string numeral, int value)
     {
         if(arabic == 1)
             return new RomanNumeral("I", arabic);
+        
+        if(arabic == 2)
+            return new RomanNumeral("II", arabic);
+        
+        if(arabic == 3)
+            return new RomanNumeral("III", arabic);
         
         throw new ArgumentException("Numbers greater than 3999 are not supported.");
     }
