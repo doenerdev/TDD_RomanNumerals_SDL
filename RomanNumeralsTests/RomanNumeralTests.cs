@@ -45,6 +45,9 @@ public class RomanNumeral(string numeral, int value)
     {
         if(arabic > 3999)
             throw new ArgumentException("Numbers greater than 3999 are not supported.");
+
+        if (arabic == 5)
+            return new RomanNumeral("V", 5);
         
         var numeral = "";
         for (var i = 0; i < arabic; i++)
