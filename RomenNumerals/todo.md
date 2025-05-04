@@ -13,8 +13,8 @@
 [x] Convert basic number '20'  
 [x] Convert basic number '50'  
 
-[] Handle subtractive format with '4'  
-[] Handle subtractive format with '9'
+[x] Handle subtractive format with '4'  
+[x] Handle subtractive format with '9'
 
 [] Convert additional more complex numbers...  
 
