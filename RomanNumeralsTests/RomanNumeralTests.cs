@@ -42,16 +42,14 @@ public class RomanNumeral(string numeral, int value)
 
     public static RomanNumeral FromArabic(int arabic)
     {
-        if(arabic == 1)
-            return new RomanNumeral("I", arabic);
+        if(arabic > 3999)
+            throw new ArgumentException("Numbers greater than 3999 are not supported.");
         
-        if(arabic == 2)
-            return new RomanNumeral("II", arabic);
+        var numeral = "";
+        for (var i = 0; i < arabic; i++)
+            numeral += "I";
         
-        if(arabic == 3)
-            return new RomanNumeral("III", arabic);
-        
-        throw new ArgumentException("Numbers greater than 3999 are not supported.");
+        return new RomanNumeral(numeral, arabic);
     }
 }
 
