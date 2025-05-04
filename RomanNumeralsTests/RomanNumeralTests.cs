@@ -46,15 +46,17 @@ public class RomanNumeral(string numeral, int value)
     {
         if(arabic > 3999)
             throw new ArgumentException("Numbers greater than 3999 are not supported.");
-        
-        if (arabic == 6)
-            return new RomanNumeral("VI", 6);
-        
-        if (arabic == 5)
-            return new RomanNumeral("V", 5);
-        
+
         var numeral = "";
-        for (var i = 0; i < arabic; i++)
+        var arabicToProcess = arabic;
+        
+        if (arabic >= 5)
+        {
+            numeral += "V";
+            arabicToProcess -= 5;
+        }
+        
+        for (var i = 0; i < arabicToProcess; i++)
             numeral += "I";
         
         return new RomanNumeral(numeral, arabic);
