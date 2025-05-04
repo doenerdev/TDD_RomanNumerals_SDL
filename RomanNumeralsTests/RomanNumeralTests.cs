@@ -22,11 +22,14 @@ public class RomanNumeralTests
     [InlineData(1, "I")]
     [InlineData(2, "II")]
     [InlineData(3, "III")]
+    [InlineData(4, "IV")]
     [InlineData(5, "V")]
     [InlineData(6, "VI")]
+    [InlineData(9, "IX")]
     [InlineData(10, "X")]
     [InlineData(20, "XX")]
     [InlineData(50, "L")]
+    [InlineData(45, "XLV")]
     public void FromArabic_ReturnsExpectedRomanNumeral(int arabic, string expectedNumeral)
     {
         //Arrange
