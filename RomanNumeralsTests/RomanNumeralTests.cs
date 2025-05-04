@@ -17,6 +17,20 @@ public class RomanNumeralTests
         action.Should().Throw<ArgumentException>()
             .WithMessage("Numbers greater than 3999 are not supported.");
     }
+    
+    [Fact]
+    public void ConvertFromArabic_GivenNumber1_Literal_I_IsReturned()
+    {
+        //Arrange
+        const int arabic = 1;
+        var expected = new RomanNumeral("I", arabic);
+        
+        //Act
+        var actual = RomanNumeral.FromArabic(arabic);
+        
+        //Assert
+        actual.Should().BeEquivalentTo(expected);
+    }
 }
 
 public class RomanNumeral(string numeral, int value)
