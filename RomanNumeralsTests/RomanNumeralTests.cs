@@ -26,6 +26,7 @@ public class RomanNumeralTests
     [InlineData(6, "VI")]
     [InlineData(10, "X")]
     [InlineData(20, "XX")]
+    [InlineData(50, "L")]
     public void FromArabic_ReturnsExpectedRomanNumeral(int arabic, string expectedNumeral)
     {
         //Arrange
@@ -48,7 +49,8 @@ public class RomanNumeral(string numeral, int value)
     [
         (1, "I"),
         (5, "V"),
-        (10, "X")
+        (10, "X"),
+        (50, "L")
     ];
 
     public static RomanNumeral FromArabic(int arabic)
@@ -59,7 +61,7 @@ public class RomanNumeral(string numeral, int value)
         var numeral = "";
         var arabicToProcess = arabic;
 
-        foreach (var numeralLookup in Numerals.OrderByDescending(x => x.Numeral))
+        foreach (var numeralLookup in Numerals.OrderByDescending(x => x.Arabic))
         {
             while (arabicToProcess >= numeralLookup.Arabic)
             {
