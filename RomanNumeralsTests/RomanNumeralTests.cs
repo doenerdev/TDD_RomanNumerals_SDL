@@ -46,6 +46,7 @@ public class RomanNumeral(string numeral, int value)
 
     private static readonly List<(int Arabic, string Numeral)> Numerals =
     [
+        (1, "I"),
         (5, "V"),
         (10, "X")
     ];
@@ -66,9 +67,6 @@ public class RomanNumeral(string numeral, int value)
                 arabicToProcess -= numeralLookup.Arabic;
             }
         }
-        
-        for (var i = 0; i < arabicToProcess; i++)
-            numeral += "I";
         
         return new RomanNumeral(numeral, arabic);
     }
