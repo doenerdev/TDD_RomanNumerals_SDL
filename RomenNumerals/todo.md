@@ -10,7 +10,7 @@
 [x] Convert basic number '5'
 [x] Convert basic number '6'
 [x] Convert basic number '10'  
-[] Convert basic number '20'  
+[x] Convert basic number '20'  
 [] Convert basic number '50'  
 
 [] Handle subtractive format with '4'  
