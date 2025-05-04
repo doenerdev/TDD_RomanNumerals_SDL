@@ -10,7 +10,6 @@ public class RomanNumeralTests
     {
         //Arrange
         const int arabic = 4000;
-        
         var action = () => RomanNumeral.FromArabic(arabic);
         
         //Act & Assert
@@ -30,25 +29,29 @@ public class RomanNumeralTests
     [InlineData(20, "XX")]
     [InlineData(50, "L")]
     [InlineData(45, "XLV")]
-    public void FromArabic_ReturnsExpectedRomanNumeral(int arabic, string expectedNumeral)
+    [InlineData(93, "XCIII")]
+    [InlineData(100, "C")]
+    [InlineData(421, "CDXXI")]
+    [InlineData(500, "D")]
+    [InlineData(670, "DCLXX")]
+    [InlineData(999, "CMXCIX")]
+    [InlineData(1000, "M")]
+    [InlineData(3999, "MMMCMXCIX")]
+    public void FromArabic_ReturnsExpectedRomanNumeral(uint arabic, string expectedNumeral)
     {
-        //Arrange
-        var expected = new RomanNumeral(expectedNumeral, arabic);
-        
-        //Act
-        var actual = RomanNumeral.FromArabic(arabic);
-        
-        //Assert
-        actual.Should().BeEquivalentTo(expected);
+        RomanNumeral
+            .FromArabic(arabic)
+            .Should()
+            .BeEquivalentTo(new RomanNumeral(expectedNumeral, arabic));
     }
 }
 
-public class RomanNumeral(string numeral, int value)
+public class RomanNumeral(string numeral, uint value)
 {
     public string Numeral { get; set; } = numeral;
-    public int Value { get; set; } = value;
+    public uint Value { get; set; } = value;
 
-    private static readonly List<(int Arabic, string Numeral)> Numerals =
+    private static readonly List<(uint Arabic, string Numeral)> Numerals =
     [
         (1, "I"),
         (4, "IV"),
@@ -56,10 +59,16 @@ public class RomanNumeral(string numeral, int value)
         (9, "IX"),
         (10, "X"),
         (40, "XL"),
-        (50, "L")
+        (50, "L"),
+        (90, "XC"),
+        (100, "C"),
+        (400, "CD"),
+        (500, "D"),
+        (900, "CM"),
+        (1000, "M"),
     ];
 
-    public static RomanNumeral FromArabic(int arabic)
+    public static RomanNumeral FromArabic(uint arabic)
     {
         if(arabic > 3999)
             throw new ArgumentException("Numbers greater than 3999 are not supported.");

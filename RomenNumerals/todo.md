@@ -1,8 +1,8 @@
 # To-Dos
 
 [x] Reject numbers bigger than 3999  
-[] Ensure lower limit of 0 (no negative numbers in requirement)  
-[] Make sure that lower limit of 3999 still works
+[x] Ensure lower limit of 0 (no negative numbers in requirement) --> ensured on the type level 
+[x] Make sure that lower limit of 3999 still works
 
 [x] Convert basic number '1'  
 [x] Convert basic number '2'  
@@ -16,7 +16,7 @@
 [x] Handle subtractive format with '4'  
 [x] Handle subtractive format with '9'
 
-[] Convert additional more complex numbers...  
+[x] Convert additional more complex numbers...  
 
 
 
